@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Entity\Post;
+use App\Form\PostType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -30,17 +31,7 @@ class PostController extends AbstractController
 
 
         $post = new Post();
-
-        $form = $this->createFormBuilder($post)
-                ->add("title", TextType::class)
-                ->add("content", TextareaType::class)
-                ->add("author", TextType::class)
-                ->add("submit", SubmitType::class)
-                ->getForm();
-
-        //$em = $this->getDoctrine()->getManager();
-
-        //$em->flush();
+        $form = $this->createForm(PostType::class, $post);
 
         $form->handleRequest($request);
 
@@ -58,6 +49,24 @@ class PostController extends AbstractController
 
     public function showAction(Post $post){
         return $this->render("post/show.html.twig", ['post'=>$post]);
+    }
+
+    public function editAction(Request $request, Post $post){
+        $form = $this->createForm(PostType::class, $post);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $post = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($post);
+            $em->flush();
+
+            return $this->redirectToRoute("index");
+        }
+
+        return $this->render("post/add.html.twig", ['form'=>$form->createView()]);
+
     }
 
     private function getPostRepository(){

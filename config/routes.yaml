@@ -11,3 +11,6 @@ showPost:
     path: /show/{id}
     controller: App\Controller\PostController::showAction
 
+editPost:
+    path: /edit/{id}
+    controller: App\Controller\PostController::editAction
