@@ -2,6 +2,13 @@
 
 {% block body %}
 
-    <h1>{{ title }}</h1>
+    {% for post in posts  %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+
+        <span>{{ post.author }}</span>
+        <hr>
+    {% endfor %}
+
 
 {% endblock %}

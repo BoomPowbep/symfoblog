@@ -2,3 +2,6 @@ index:
     path: /
     controller: App\Controller\PostController::indexAction
 
+addPost:
+    path: /add
+    controller: App\Controller\PostController::addAction

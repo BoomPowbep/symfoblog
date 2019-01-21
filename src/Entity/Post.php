@@ -44,6 +44,11 @@ class Post
     protected $date;
 
 
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
+
 
     /**
      * @return mixed
