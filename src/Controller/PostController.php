@@ -10,11 +10,10 @@ namespace App\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends AbstractController
 {
     public function indexAction(){
-        return new Response("");
+        return $this->render("post/index.html.twig");
     }
 }
