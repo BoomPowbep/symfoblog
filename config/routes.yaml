@@ -5,3 +5,9 @@ index:
 addPost:
     path: /add
     controller: App\Controller\PostController::addAction
+
+
+showPost:
+    path: /show/{id}
+    controller: App\Controller\PostController::showAction
+

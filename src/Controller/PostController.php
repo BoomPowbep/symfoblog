@@ -16,8 +16,8 @@ use Symfony\Component\HttpFoundation\Response;
 class PostController extends AbstractController
 {
     public function indexAction(){
-        $repository = $this->getDoctrine()->getRepository(Post::class);
-        $posts = $repository->findAll();
+
+        $posts = $this->getPostRepository()->findAll();
 
         return $this->render("post/index.html.twig", ['posts'=>$posts]);
     }
@@ -36,5 +36,16 @@ class PostController extends AbstractController
         $em->flush();
 
         return new Response('nouveau post');
+    }
+
+    public function showAction($id){
+        $post = $this->getPostRepository()->findOneBy(['id' => $id]);
+
+        return $this->render("post/show.html.twig", ['post'=>$post]);
+    }
+
+    private function getPostRepository(){
+        return $this->getDoctrine()->getRepository(Post::class);
+
     }
 }
