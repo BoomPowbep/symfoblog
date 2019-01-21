@@ -5,11 +5,18 @@
 {% block body %}
 
     {% for post in posts  %}
-        <h1><a href="{{ path('showPost', {'id': post.id }) }}">{{ post.title }}</a></h1>
-        <p>{{ post.content }}</p>
+        <div>
+            <div class="postInfos">
+                <h1><a href="{{ path('showPost', {'id': post.id }) }}">{{ post.title }}</a></h1>
+                <p>{{ post.content }}</p>
 
-        <span>{{ post.author }}</span>
-        <hr>
+                <span>{{ post.author }}</span>
+            </div>
+            <div class="postActions">
+                <a href="{{ path('editPost', {'id': post.id}) }}">Edit</a>
+                <a href="{{ path('deletePost', {'id': post.id}) }}">Dilite</a>
+            </div>
+        </div>
     {% endfor %}
 
 

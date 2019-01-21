@@ -14,3 +14,7 @@ showPost:
 editPost:
     path: /edit/{id}
     controller: App\Controller\PostController::editAction
+
+deletePost:
+    path: /delete/{id}
+    controller: App\Controller\PostController::deleteAction
