@@ -14,6 +14,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PostController extends AbstractController
 {
     public function indexAction(){
-        return $this->render("post/index.html.twig");
+        return $this->render("post/index.html.twig", ['title' => "Picon Bière 🍺"]);
     }
 }
