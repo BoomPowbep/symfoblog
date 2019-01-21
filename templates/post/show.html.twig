@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ post.title }}{% endblock %}
+
 {% block body %}
 
         <h1>{{ post.title }}</h1>
         <p>{{ post.content }}</p>
 
-        <span>{{ post.author }}</span>
+        <span>par {{ post.author }}</span>
         <hr>
 
 {% endblock %}
