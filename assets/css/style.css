@@ -1,0 +1,19 @@
+body {
+  background: #d00f0f;
+  color: lightgreen;
+  width: 50%;
+  margin: auto; }
+  body a {
+    color: #10c310; }
+
+.post {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+  .post__title {
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 2rem; }
+
+/*# sourceMappingURL=style.css.map */

@@ -39,6 +39,10 @@ class Post
     protected $author;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    protected $note = 0;
+    /**
      * @ORM\Column(type="date")
      */
     protected $date;
@@ -47,6 +51,7 @@ class Post
     public function __construct()
     {
         $this->date = new \DateTime();
+
     }
 
 
@@ -115,6 +120,24 @@ class Post
     {
         $this->author = $author;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param mixed $note
+     */
+    public function setNote($note): void
+    {
+        $this->note = $note;
+    }
+
+
 
     /**
      * @return mixed

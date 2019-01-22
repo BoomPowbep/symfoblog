@@ -87,4 +87,11 @@ class PostController extends AbstractController
     private function getPostRepository(){
         return $this->getDoctrine()->getRepository(Post::class);
     }
+
+    private function likeAction(){
+
+    }
+    private function unlikeAction(){
+
+    }
 }
